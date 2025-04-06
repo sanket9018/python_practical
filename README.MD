@@ -12,11 +12,38 @@ Before running the project, ensure you have the following installed:
 
 ## Project Structure
 
+    ├── app/
+    │   ├── apis/
+    │   ├── schema/
+    │   ├── __init__.py
+    │   ├── main.py
+    │   └── ...
+    ├── mysql/
+    │   └── init.sql
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── requirements.txt
+    └── README.md
+
 ## Setup and Run
 
 ### Using Docker (Recommended)
 
 1. **Clone the Repository**:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/sanket9018/python_practical.git
+   cd python_practical
+   ```
+
+2. **Build and Start the Docker Containers**:
+   ```bash
+   docker-compose up --build
+   ```
+
+   The required tables and database will be created automatically during the container initialization.
+
+3. **Start the FastAPI Server**:
+   The server will start at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+4. **Access the Swagger UI (API Documentation)**:
+   Open your browser and navigate to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
