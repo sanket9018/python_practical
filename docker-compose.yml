@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin@123
+      MYSQL_DATABASE: FastAPIPractical
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+  fastapi_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    environment:
+      MYSQL_HOST: mysql_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Admin@123
+      MYSQL_DATABASE: FastAPIPractical
+    depends_on:
+      - mysql_db
+    restart: always
+    volumes:
+      - .:/app
+
+volumes:
+  mysql_data:

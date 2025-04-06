@@ -1,0 +1,9 @@
+fastapi==0.110.0
+uvicorn==0.29.0
+aiomysql==0.2.0
+pymysql==1.1.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+email-validator==2.1.0.post1
+python-dotenv
+PyJWT==2.10.1
