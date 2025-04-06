@@ -1,5 +1,6 @@
 
 # wait until MySQL is ready
+#!/bin/bash
 until mysqladmin ping -h"$MYSQL_HOST" --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" --silent; do
   echo "Waiting for MySQL to be ready..."
   sleep 2

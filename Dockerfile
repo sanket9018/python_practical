@@ -12,4 +12,6 @@ COPY . .
 
 RUN chmod +x wait-for-mysql.sh
 
-CMD ["./wait-for-mysql.sh"]
+# CMD ["./wait-for-mysql.sh"]
+CMD ["bash", "-c", "./wait-for-mysql.sh"]
+
